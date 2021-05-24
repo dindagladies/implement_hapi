@@ -1,62 +1,67 @@
 const {
-    addBookHandler,
-    getAllBooksHandler,
-    getBookByIdHandler,
-    editBookByIdHandler,
-    deleteBookByIdHandler,
+    addBook,
+    getAllBook,
+    getBookById,
+    editBook,
+    deleteBook,
 } = require('./handler');
 
 const routes = [
-{
-    method: 'POST',
-    path: '/books',
-    handler: addBookHandler,
-    options: {
-    cors: {
-        origin: ['*'],
+    // add
+    {
+        method: 'POST',
+        path: '/books',
+        handler: addBook,
+        options: {
+        cors: {
+            origin: ['*'],
+        },
+        },
     },
+    // get
+    {
+        method: 'GET',
+        path: '/books',
+        handler: getAllBook,
+        options: {
+        cors: {
+            origin: ['*'],
+        },
+        },
     },
-},
-{
-    method: 'GET',
-    path: '/books',
-    handler: getAllBooksHandler,
-    options: {
-    cors: {
-        origin: ['*'],
+    // get by id
+    {
+        method: 'GET',
+        path: '/books/{id}',
+        handler: getBookById,
+        options: {
+        cors: {
+            origin: ['*'],
+        },
+        },
     },
+    // update
+    {
+        method: 'PUT',
+        path: '/books/{id}',
+        handler: editBook,
+        options: {
+        cors: {
+            origin: ['*'],
+        },
+        },
     },
-},
-{
-    method: 'GET',
-    path: '/books/{id}',
-    handler: getBookByIdHandler,
-    options: {
-    cors: {
-        origin: ['*'],
+    // delete
+    {
+        method: 'DELETE',
+        path: '/books/{id}',
+        handler: deleteBook,
+        options: {
+        cors: {
+            origin: ['*'],
+        },
+        },
     },
-    },
-},
-{
-    method: 'PUT',
-    path: '/books/{id}',
-    handler: editBookByIdHandler,
-    options: {
-    cors: {
-        origin: ['*'],
-    },
-    },
-},
-{
-    method: 'DELETE',
-    path: '/books/{id}',
-    handler: deleteBookByIdHandler,
-    options: {
-    cors: {
-        origin: ['*'],
-    },
-    },
-},
 ];
 
 module.exports = routes;
